@@ -11,9 +11,10 @@
   </div>
   <div class="favorites">
     <h1>Favorite Jokes:</h1>
+    <button class="btn btn-primary" (click)="fetchFavorites(joke)">Get your favorite jokes</button>
     <div *ngFor="let joke of favoriteJokes" class="favorite">
-      <span>{{ joke }}</span>
-      <button class="btn btn-danger">Delete this joke.</button>
+      <span>{{ joke.joke }}</span>
+      <button class="btn btn-danger" (click)="onDelete(id)">Delete this joke.</button>
     </div>
   </div>
 </div>

@@ -6,6 +6,7 @@ import { JokeModel } from './joke.model';
   providedIn: 'root',
 })
 export class JokeApiService {
+  dataURL = 'https://icanhazdadjoke.com/jokes.json'
 
   constructor(private http: HttpClient) {}
 
@@ -15,5 +16,8 @@ export class JokeApiService {
     });
   }
 
+  onClearJoke(id: number) {
+    // return this.http.delete<JokeModel>(this.dataURL)
+  }
 
 }
