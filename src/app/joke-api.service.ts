@@ -16,8 +16,8 @@ export class JokeApiService {
     });
   }
 
-  onClearJoke(id: number) {
-    // return this.http.delete<JokeModel>(this.dataURL)
+  onClearJoke(id: string) {
+    return this.http.delete<JokeModel>('https://icanhazdadjoke.com/jokes' + id + '.json')
   }
 
 }

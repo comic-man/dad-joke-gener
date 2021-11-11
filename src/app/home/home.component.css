@@ -1,0 +1,16 @@
+.joke-container {
+  display: flex;
+  justify-content: space-evenly;
+  width: 100%;
+}
+
+.random-joke {
+  width: 50%;
+  margin: 15px;
+  margin-right: 80px;
+}
+
+.favorites {
+  width: 50%;
+}
+

@@ -53,7 +53,7 @@ export class HomeComponent implements OnInit {
       });
   }
 
-  onDelete(id: number) {
-    // this.dadSrv.onClearJoke(id).subscribe()
+  onDelete(id: string) {
+    this.dadSrv.onClearJoke(id).subscribe()
   }
 }

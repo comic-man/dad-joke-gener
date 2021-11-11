@@ -2,19 +2,25 @@
   <button class="btn btn-primary" (click)="onRandomJoke()">
     Add Random Joke
   </button>
-  <div class="random-joke">
-    <h1>Random Dad Joke:</h1>
-    <span *ngIf="joke">{{ joke.joke }}</span>
-    <button class="btn btn-success" (click)="onFavorite(joke)">
-      Favorite this joke!
-    </button>
-  </div>
-  <div class="favorites">
-    <h1>Favorite Jokes:</h1>
-    <button class="btn btn-primary" (click)="fetchFavorites(joke)">Get your favorite jokes</button>
-    <div *ngFor="let joke of favoriteJokes" class="favorite">
-      <span>{{ joke.joke }}</span>
-      <button class="btn btn-danger" (click)="onDelete(id)">Delete this joke.</button>
+  <div class="joke-container">
+    <div class="random-joke">
+      <h1>Random Dad Joke:</h1>
+      <span *ngIf="joke" class="list-group-item">{{ joke.joke }}</span>
+      <button class="btn btn-success" (click)="onFavorite(joke)">
+        Favorite this joke!
+      </button>
+    </div>
+    <div class="favorites">
+      <h1>Favorite Jokes:</h1>
+      <button class="btn btn-primary" (click)="fetchFavorites(joke)">
+        Get your favorite jokes
+      </button>
+      <div *ngFor="let joke of favoriteJokes" class="favorite list-group">
+        <span class="list-group-item">{{ joke.joke }}</span>
+        <button class="btn btn-danger" (click)="onDelete(id)">
+          Delete this joke.
+        </button>
+      </div>
     </div>
   </div>
 </div>
