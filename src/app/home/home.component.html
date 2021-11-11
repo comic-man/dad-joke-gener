@@ -1,0 +1,19 @@
+<div class="container">
+  <button class="btn btn-primary" (click)="onRandomJoke()">
+    Add Random Joke
+  </button>
+  <div class="random-joke">
+    <h1>Random Dad Joke:</h1>
+    <span *ngIf="joke">{{ joke.joke }}</span>
+    <button class="btn btn-success" (click)="onFavorite(joke)">
+      Favorite this joke!
+    </button>
+  </div>
+  <div class="favorites">
+    <h1>Favorite Jokes:</h1>
+    <div *ngFor="let joke of favoriteJokes" class="favorite">
+      <span>{{ joke }}</span>
+      <button class="btn btn-danger">Delete this joke.</button>
+    </div>
+  </div>
+</div>
