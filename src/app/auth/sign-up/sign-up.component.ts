@@ -12,6 +12,7 @@ export class SignUpComponent implements OnInit {
 
   ngOnInit(): void {}
 
+  // get confirmation to actually check if passwords match
   onSignUp(form: NgForm) {
     if (!form.valid) {
       return;
