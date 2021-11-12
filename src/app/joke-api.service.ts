@@ -6,7 +6,8 @@ import { JokeModel } from './joke.model';
   providedIn: 'root',
 })
 export class JokeApiService {
-  dataURL = 'https://icanhazdadjoke.com/jokes.json'
+  dataURL = 'https://icanhazdadjoke.com/'
+  fireURL = 'https://dad-jokester-default-rtdb.firebaseio.com/jokes.json'
 
   constructor(private http: HttpClient) {}
 
@@ -17,7 +18,7 @@ export class JokeApiService {
   }
 
   onClearJoke(id: string) {
-    return this.http.delete<JokeModel>('https://icanhazdadjoke.com/jokes' + id + '.json')
+    return this.http.delete<JokeModel>(`https://dad-jokester-default-rtdb.firebaseio.com/jokes/${id}.json`)
   }
 
 }

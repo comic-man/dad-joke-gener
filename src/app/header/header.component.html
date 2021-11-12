@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="#">Dad Joke Generator
+  <a class="navbar-brand" [routerLink]="'/'">Dad Joke Generator
   </a>
   <button
     class="navbar-toggler"
@@ -15,12 +15,12 @@
   <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="navbar-nav">
       <li class="nav-item active">
-        <a class="nav-link" href="#"
+        <a class="nav-link" href="#" [routerLink]="'sign-in'"
           >Sign In</a
         >
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Sign Up</a>
+        <a class="nav-link" href="#" [routerLink]="'sign-up'">Sign Up</a>
       </li>
     </ul>
   </div>
