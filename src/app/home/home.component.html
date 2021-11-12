@@ -1,29 +1,41 @@
 <div class="container">
-  <br>
-  <button class="btn btn-primary" (click)="onRandomJoke()">
-    Add Random Joke
-  </button>
   <div class="joke-container">
     <div class="random-joke">
       <h1>Random Dad Joke:</h1>
       <span *ngIf="joke" class="list-group-item">{{ joke.joke }}</span>
+      <br>
+      <button class="btn btn-primary" (click)="onRandomJoke()">
+        Add new random joke!
+      </button>
+      ||
       <button class="btn btn-success" (click)="onFavorite(joke)">
         Favorite this joke!
       </button>
     </div>
     <div class="favorites">
       <h1>Favorite Jokes:</h1>
-      <button class="btn btn-primary" (click)="fetchFavorites()">
-        Get your favorite jokes
-      </button>
-      <div *ngFor="let joke of favoriteJokes; let i = index" class="favorite list-group">
-        <span class="list-group-item">{{ joke.joke }}</span>
-        <button class="btn btn-danger" (click)="onDelete(joke.id)">
-          Delete this joke.
+      <div class="hidden-favorites" *ngIf="!showFavorites">
+        <button class="btn btn-primary" (click)="fetchFavorites()">
+          Get your favorite jokes
         </button>
+      </div>
+      <div class="shown-favorites" *ngIf="showFavorites">
+        <button class="btn btn-primary" (click)="hideFavorites()">
+          Hide joke list
+        </button>
+      </div>
+      <hr />
+      <div
+        *ngFor="let joke of favoriteJokes; let i = index"
+        class="favorite list-group"
+      >
+        <div *ngIf="showFavorites">
+          <span class="list-group-item">{{ joke.joke }}</span>
+          <button class="btn btn-danger" (click)="onDelete(joke.id)">
+            Delete this joke.
+          </button>
+        </div>
       </div>
     </div>
   </div>
 </div>
-
-

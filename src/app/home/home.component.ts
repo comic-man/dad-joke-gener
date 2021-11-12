@@ -13,6 +13,7 @@ export class HomeComponent implements OnInit {
   id!: any;
   joke!: JokeModel;
   favoriteJokes: JokeModel[] = [];
+  showFavorites = false;
 
   private dataURL =
     'https://dad-jokester-default-rtdb.firebaseio.com/jokes.json';
@@ -36,18 +37,17 @@ export class HomeComponent implements OnInit {
   }
 
   fetchFavorites() {
+    this.showFavorites = !this.showFavorites;
     return this.http
       .get<{ [key: string]: JokeModel }>(this.dataURL)
       .pipe(
         map((response) => {
-          console.log(response)
           const jokeList = [];
           for (const key in response) {
             if (response.hasOwnProperty(key)) {
               jokeList.push({ ...response[key], id: key });
             }
           }
-          console.log(jokeList)
           return jokeList;
         })
       )
@@ -60,5 +60,9 @@ export class HomeComponent implements OnInit {
     this.dadSrv.onClearJoke(id).subscribe(() => {
       this.fetchFavorites()
     })
+  }
+
+  hideFavorites() {
+    this.showFavorites = !this.showFavorites
   }
 }
