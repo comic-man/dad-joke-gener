@@ -12,7 +12,7 @@
         Favorite this joke!
       </button>
     </div>
-    <div class="favorites">
+    <div class="favorites" *ngIf="localStorage.isLoggedIn() | async">
       <h1>Favorite Jokes:</h1>
       <!-- make sure signed in users can access this -->
       <div class="hidden-favorites" *ngIf="!showFavorites">
